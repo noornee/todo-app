@@ -1,0 +1,22 @@
+
+<h3>Todo List</h3>
+
+<p><a href="{% url 'todo:todo_create' %}">Add todo</a></p>
+
+{% for todo in todo_list %}
+<table>
+    <tr>
+        <td>
+            <a href="{% url 'todo:todo_detail' todo.id %}">{{ todo.title }}</a>
+        </td>
+        <td>
+            <a href="{% url 'todo:todo_edit' todo.id %}">Edit</a>
+        </td>
+        <td>
+            <a href="{% url 'todo:todo_delete' todo.id %}">Delete</a>
+        </td>
+    </tr>
+</table>
+{% endfor %}
+
+
