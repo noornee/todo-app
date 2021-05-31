@@ -1,6 +1,13 @@
 
 <h3>Todo List</h3>
-
+<hr>
+{% if request.user.is_authenticated %}
+    <p>{{ request.user }}</p>
+    <p>
+        <a href="{% url 'todo:logout' %}">Logout</a>
+    </p>
+{% endif %}
+<hr>
 <p><a href="{% url 'todo:todo_create' %}">Add todo</a></p>
 
 {% for todo in todo_list %}
