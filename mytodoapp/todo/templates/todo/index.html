@@ -1,3 +1,8 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+<div id="todobody">
 
 <h3>Todo List</h3>
 <hr>
@@ -10,20 +15,30 @@
 <hr>
 <p><a href="{% url 'todo:todo_create' %}">Add todo</a></p>
 
-{% for todo in todo_list %}
-<table>
-    <tr>
-        <td>
-            <a href="{% url 'todo:todo_detail' todo.id %}">{{ todo.title }}</a>
-        </td>
-        <td>
-            <a href="{% url 'todo:todo_edit' todo.id %}">Edit</a>
-        </td>
-        <td>
-            <a href="{% url 'todo:todo_delete' todo.id %}">Delete</a>
-        </td>
-    </tr>
-</table>
-{% endfor %}
+
+<div class="todo-container">
+<div class="todo-content">
+    {% for todo in todo_list %}
+    <table>
+        <tr>
+            <td>
+                <a href="{% url 'todo:todo_detail' todo.id %}">{{ todo.title }}</a>
+            </td>
+            <td>
+                <a href="{% url 'todo:todo_edit' todo.id %}">Edit</a>
+            </td>
+            <td>
+                <a href="{% url 'todo:todo_delete' todo.id %}">Delete</a>
+            </td>
+        </tr>
+    </table>
+    {% endfor %}
+</div>
+</div>
+
+
+</div>
+
+{% endblock %}
 
 
