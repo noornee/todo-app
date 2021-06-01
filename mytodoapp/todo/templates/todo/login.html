@@ -1,11 +1,76 @@
-<h1>Login</h1>
+{% extends 'todo/base.html' %}
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="login">
-</form>
 
-<p>
-    Don't have an account? <a href="{% url 'todo:register' %}">register</a>
-</p>
+{% block content %}
+
+<div class="login-form ">
+ <div class="content bg-dark">
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>
+            <input type="text" name="username" id="id_username" placeholder="username" required>
+        </p>    
+        <p>
+            <input type="password" name="password" id="id_password" placeholder="password" required>
+        </p>
+        <p class="btn btn-primary">
+            <input type="submit" value="login">
+        </p>
+        <p class="text-muted">
+            Don't have an account? <a href="{% url 'todo:register' %}">register</a>
+        </p>
+    </form>
+ </div>
+</div>
+
+
+<style>
+
+
+    label {
+        display: none;
+    }
+
+
+    input[type=text], input[type=password] {
+        text-align: center;
+        border-radius: 15px;
+        outline: none;
+        border: 1px solid green;
+        height: 50px;
+        width: 250px;
+        transition: width 2s;
+    }
+
+    input[type=text]:hover, input[type=password]:hover {
+        width: 300px;
+        border: 1px solid red;
+    }
+
+     input[type=submit]{
+        background: none;
+        border: none;
+        color: white;
+    } 
+
+    input[type=text]{
+        margin-top: 150px;
+
+    }
+
+    .login-form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .content {
+        border: 2px solid green;
+        height: 500px;
+        width: 500px;
+        text-align: center;
+    }
+</style>
+
+{% endblock %}

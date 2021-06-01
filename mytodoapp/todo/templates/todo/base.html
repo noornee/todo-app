@@ -10,8 +10,8 @@
     <title>Todo</title>
 </head>
 <body>
-    <nav class="navbar navbar-light bg-light px-3">
-        <a class="navbar-brand" href="#">TodoAPP</a>
+    <nav class="navbar navbar-light bg-dark px-3">
+        <a class="navbar-brand text-muted" href="{% url 'todo:todo_list' %}">TodoAPP</a>
         <ul class="nav">
           <li class="nav-item">
             <a class="nav-link" href="{% url 'todo:todo_create' %}">Add Todo</a>

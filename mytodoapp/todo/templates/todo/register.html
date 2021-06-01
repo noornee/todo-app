@@ -1,7 +1,31 @@
+{% extends 'todo/base.html' %}
+
+
+{% block content %}
+
 <h3>Register</h3>
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="submit">
-</form>
+
+<div class="register-form ">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="submit">
+    </form>
+
+<style>
+
+
+.register-form {
+    width: 60vw;
+    border: 2px solid black;
+    margin: 0 auto;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+}
+
+</style>
+
+{% endblock %}
