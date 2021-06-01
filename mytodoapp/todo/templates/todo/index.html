@@ -1,10 +1,8 @@
 {% extends 'todo/base.html' %}
 
+
 {% block content %}
-
-<div id="todobody">
-
-<h3>Todo List</h3>
+<!-- <h3>Todo List</h3>
 <hr>
 {% if request.user.is_authenticated %}
     <p>{{ request.user }}</p>
@@ -13,30 +11,43 @@
     </p>
 {% endif %}
 <hr>
-<p><a href="{% url 'todo:todo_create' %}">Add todo</a></p>
+<p><a href="{% url 'todo:todo_create' %}">Add todo</a></p> -->
+
+
+
 
 
 <div class="todo-container">
-<div class="todo-content">
-    {% for todo in todo_list %}
-    <table>
-        <tr>
-            <td>
-                <a href="{% url 'todo:todo_detail' todo.id %}">{{ todo.title }}</a>
-            </td>
-            <td>
-                <a href="{% url 'todo:todo_edit' todo.id %}">Edit</a>
-            </td>
-            <td>
-                <a href="{% url 'todo:todo_delete' todo.id %}">Delete</a>
-            </td>
-        </tr>
-    </table>
-    {% endfor %}
-</div>
-</div>
-
-
+{% for todo in todo_list %}
+    {% if todo.complete == False %}
+<div class="card w-75 mx-auto bg-warning" style="margin:20px">
+    <div class="card-body">
+        <h5 class="card-title">{{ todo.title }}</h5>
+        <p class="card-text">
+        {{ todo.description|truncatechars:100}}
+        </p>
+        <p>
+            <i class="text-muted">Last updated at {{ todo.modified }}</i>
+        </p>
+        <a href="{% url 'todo:todo_edit' todo.id %}" class="btn btn-primary">View</a>
+    </div>
+    </div> 
+{% else %} 
+<div class="card w-75 mx-auto bg-success" style="margin:20px">
+    <div class="card-body">
+        <h5 class="card-title">{{ todo.title }}</h5>
+        <p class="card-text">
+        {{ todo.description|truncatechars:100}}
+        </p>
+        <p>
+            <i class="text-danger">Last updated at {{ todo.modified }}</i>
+            <!-- text-muted -->
+        </p>
+        <a href="{% url 'todo:todo_edit' todo.id %}" class="btn btn-primary">View</a>
+    </div>
+    </div> 
+    {% endif %}
+{% endfor %}
 </div>
 
 {% endblock %}
