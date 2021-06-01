@@ -20,7 +20,7 @@
 <div class="todo-container">
 {% for todo in todo_list %}
     {% if todo.complete == False %}
-<div class="card w-50 mx-auto bg-warning" style="margin:20px">
+<div class="card w-75 mx-auto bg-warning" style="margin:20px">
     <div class="card-body">
         <h5 class="card-title">{{ todo.title }}</h5>
         <p class="card-text">
@@ -33,7 +33,7 @@
     </div>
     </div> 
 {% else %} 
-<div class="card w-50 mx-auto bg-info" style="margin:20px">
+<div class="card w-75 mx-auto bg-info" style="margin:20px">
     <div class="card-body">
         <h5 class="card-title">{{ todo.title }}</h5>
         <p class="card-text">
