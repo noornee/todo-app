@@ -10,3 +10,17 @@ body {
     hyphens: auto;
     word-wrap: break-word;
 }
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#id_title {
+    width: 100%;
+    text-align: center;
+}
+
+#id_description {
+    width: 100%;
+}

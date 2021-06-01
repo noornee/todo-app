@@ -53,7 +53,8 @@ class TodoDetail(LoginRequiredMixin, DetailView):
 class TodoUpdate(LoginRequiredMixin, UpdateView):
     model = Todo
     template_name = 'todo/todo_update.html'
-    fields = '__all__'
+    # fields = '__all__'
+    fields = ['title', 'description', 'complete']
     success_url = reverse_lazy('todo:todo_list')
 
 class TodoDelete(LoginRequiredMixin, DeleteView):

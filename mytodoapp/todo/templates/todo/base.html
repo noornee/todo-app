@@ -17,9 +17,11 @@
             <a class="nav-link" href="{% url 'todo:todo_create' %}">Add Todo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#scrollspyHeading2">
-                <span class="glyphicon glyphicon-log-in">Login</span>
+            {% if request.user.is_authenticated %}
+            <a class="nav-link" href="{% url 'todo:logout' %}">
+                <span class="glyphicon glyphicon-log-in">Logout</span>
             </a>
+            {% endif %}
           </li>
         </ul>
     </nav>   

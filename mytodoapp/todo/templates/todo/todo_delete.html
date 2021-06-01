@@ -1,9 +1,28 @@
+{% extends 'todo/base.html' %}
 
-<form action="" method="post">
-    {% csrf_token %}
-<h3>Are you sure you want to delete {{ todo }}</h3>
-<input type="submit" value="yes">
+{% block content %}
+<div class="card w-75 mx-auto bg-warning" style="margin:20px">
+<div class="card-body">
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete "{{ todo }}" </p>
+        <input type="submit" value="yes" class="btn btn-danger btn-lg">
+    </form> 
+    <p class="btn btn-success btn-lg">
+        <a href="{% url 'todo:todo_edit' todo.id %}">No</a>
+    </p>  
+</div>
+</div>  
 
-</form>
+<style>
+    p.btn-success {
+       margin-top: 20px;
 
-<p><a href="{% url 'todo:todo_list' %}">No</a></p>
+    }
+    
+   .btn-success a {
+        color: white;
+        text-decoration: none;
+    }
+</style>
+{% endblock %}

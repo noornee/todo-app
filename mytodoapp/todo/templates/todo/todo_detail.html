@@ -1,3 +1,8 @@
+{% extends 'todo/base.html' %}
+
+
+{% block content %}
+
 <a href="{% url 'todo:todo_list' %}">Go back</a>
 <h3>Todo Detail</h3>
 <p>{{ todo_detail.title }}</p>
@@ -5,3 +10,5 @@
 <p>{{ todo_detail.complete }}</p>
 <p>{{ todo_detail.created }}</p>
 <p>{{ todo_detail.modified }}</p>
+
+{% endblock %}

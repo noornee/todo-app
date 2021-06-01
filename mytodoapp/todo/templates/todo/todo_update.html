@@ -1,7 +1,38 @@
-<h3>To do update</h3>
+{% extends 'todo/base.html' %}
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
-</form>
+
+{% block content %}
+
+
+ <div class="card w-75 mx-auto bg-warning" style="margin:20px">
+        <h5>To do update</h5>
+
+    <div class="card-body">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Save" class="btn btn-primary btn-lg">
+
+            <p class="btn btn-danger btn-lg text-light">
+                <a href="{% url 'todo:todo_delete' todo.id %}">Delete</a>
+            </p>
+
+        </form>   
+    </div>
+</div>   
+
+<style>
+    .btn-danger {
+        position: absolute;
+        right: 20px;
+
+    }
+
+    .btn-danger a {
+        color: white;
+        text-decoration: none;
+    }
+</style>
+
+{% endblock %}
+
