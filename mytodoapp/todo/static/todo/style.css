@@ -1,0 +1,12 @@
+body {
+    background-color: grey;
+}
+
+.todo-content {
+    border: 2px solid black;
+    margin-top: 15px;
+    width: 60%;
+    min-height: 100px;
+    hyphens: auto;
+    word-wrap: break-word;
+}
