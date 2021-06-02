@@ -27,7 +27,6 @@
         </p>
         <p>
             <i class="text-muted">Last updated at {{ todo.modified }}</i>
-            <!-- text-muted -->
         </p>
         <a href="{% url 'todo:todo_edit' todo.id %}" class="btn btn-primary">View</a>
     </div>
@@ -36,43 +35,6 @@
 {% endfor %}
 </div>
 
-<style>
-    body {
-        /* background-color: rgb(34, 29, 29); */
-    }
-
-    .card {
-        width: 90%;
-    }
-
-    @media only screen and (max-width: 1000px) {
-    .card {
-        width: 55%;
-    }
-}
-
-
-    @media only screen and (max-width: 800px) {
-    .card {
-        width: 75%;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .card {
-        width: 95%;
-    }
-}
-
-
-
-@media only screen and (min-width: 1000px) {
-    .card {
-        width: 50%;
-    }
-}
-
-</style>
 
 {% endblock %}
 

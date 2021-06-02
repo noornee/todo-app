@@ -53,6 +53,7 @@ class TodoList(LoginRequiredMixin, ListView):
 class TodoDetail(LoginRequiredMixin, DetailView):
     model = Todo 
     template_name = 'todo/todo_detail.html'
+    slug_field = 'slug'
 
 class TodoUpdate(LoginRequiredMixin, UpdateView):
     model = Todo
