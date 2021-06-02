@@ -2,25 +2,11 @@
 
 
 {% block content %}
-<!-- <h3>Todo List</h3>
-<hr>
-{% if request.user.is_authenticated %}
-    <p>{{ request.user }}</p>
-    <p>
-        <a href="{% url 'todo:logout' %}">Logout</a>
-    </p>
-{% endif %}
-<hr>
-<p><a href="{% url 'todo:todo_create' %}">Add todo</a></p> -->
-
-
-
-
 
 <div class="todo-container">
 {% for todo in todo_list %}
     {% if todo.complete == False %}
-<div class="card w-75 mx-auto bg-warning" style="margin:20px">
+<div class="card  mx-auto bg-warning" style="margin:20px">
     <div class="card-body">
         <h5 class="card-title">{{ todo.title }}</h5>
         <p class="card-text">
@@ -33,7 +19,7 @@
     </div>
     </div> 
 {% else %} 
-<div class="card w-75 mx-auto bg-info" style="margin:20px">
+<div class="card  mx-auto bg-info" style="margin:20px">
     <div class="card-body">
         <h5 class="card-title">{{ todo.title }}</h5>
         <p class="card-text">
@@ -54,6 +40,38 @@
     body {
         /* background-color: rgb(34, 29, 29); */
     }
+
+    .card {
+        width: 90%;
+    }
+
+    @media only screen and (max-width: 1000px) {
+    .card {
+        width: 55%;
+    }
+}
+
+
+    @media only screen and (max-width: 800px) {
+    .card {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+        width: 95%;
+    }
+}
+
+
+
+@media only screen and (min-width: 1000px) {
+    .card {
+        width: 50%;
+    }
+}
+
 </style>
 
 {% endblock %}

@@ -6,18 +6,21 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.forms import UserCreationForm
+from .custom_user_form import CustomUserCreationForm
 from django.contrib.auth import login
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 
 # Create your views here.
 
-class TodoRegisterForm(FormView):
+class TodoRegisterForm(SuccessMessageMixin, FormView):
     template_name = 'todo/register.html'
-    form_class = UserCreationForm
+    form_class = CustomUserCreationForm
     redirect_authenticated_user = True
     success_url = reverse_lazy('todo:todo_list')
+    success_message = "your account was created successfully"
 
     def form_valid(self, form):
         user = form.save()
@@ -39,6 +42,7 @@ class TodoList(LoginRequiredMixin, ListView):
     model = Todo
     context_object_name = 'todo_list'
     template_name = 'todo/index.html'
+    ordering = ['-modified']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

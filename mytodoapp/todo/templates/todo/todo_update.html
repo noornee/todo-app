@@ -4,8 +4,9 @@
 {% block content %}
 
 
- <div class="card w-75 mx-auto bg-dark text-white" style="margin-top:20%">
-        <h5>update todo</h5>
+ <div class="card mx-auto bg-dark text-white">
+    <!-- style="margin-top:20%" -->
+        <!-- <h5>update todo</h5> -->
 
     <div class="card-body">
         <form action="" method="post">
@@ -23,7 +24,7 @@
 
 <style>
    #id_title, textarea {
-      color: white;
+      /* color: white; */
    }
    
 
@@ -37,6 +38,41 @@
         color: white;
         text-decoration: none;
     }
+
+/* media queries  */
+    .card {
+            width: 90%;
+            margin-top: 20px;
+        }
+
+    @media only screen and (max-width: 1000px) {
+    .card {
+        width: 75%;
+    }
+}
+
+    @media only screen and (max-width: 800px) {
+    .card {
+        width: 75%;
+    }
+}
+
+    @media only screen and (max-width: 700px) {
+        .card {
+            width: 95%;
+        }
+    }
+
+
+
+    @media only screen and (min-width: 1000px) {
+        .card {
+            width: 50%;
+        }
+    }
+
+
+
 </style>
 
 {% endblock %}

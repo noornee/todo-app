@@ -31,7 +31,17 @@
           </li>
           
         </ul>
-    </nav>   
+    </nav> 
+
+    {% if messages %}
+    {% for message in messages %}
+        <div class="text-center alert alert-{{ message.tags }}">
+            welcome {{request.user}} {{ message }} <br>
+            click on <b>Add Todo</b> to create a todo
+        </div>
+    {% endfor %}
+{% endif %}
+
     {% block content %}
         
     {% endblock %}
