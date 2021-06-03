@@ -29,7 +29,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nortodo.herokuapp.com','localhost:8000']
+ALLOWED_HOSTS = ['nortodo.herokuapp.com']
 
 
 # Application definition
