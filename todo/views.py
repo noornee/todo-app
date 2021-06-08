@@ -50,10 +50,10 @@ class TodoList(LoginRequiredMixin, ListView):
         context['count'] = context['todo_list'].filter(complete=False).count()
         return context
 
-class TodoDetail(LoginRequiredMixin, DetailView):
-    model = Todo 
-    template_name = 'todo/todo_detail.html'
-    slug_field = 'slug'
+# class TodoDetail(LoginRequiredMixin, DetailView):
+#     model = Todo 
+#     template_name = 'todo/todo_detail.html'
+#     slug_field = 'slug'
 
 class TodoUpdate(LoginRequiredMixin, UpdateView):
     model = Todo
